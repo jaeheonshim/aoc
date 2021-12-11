@@ -37,3 +37,17 @@ for i in range(0, 100):
     total_flashes += step()
 
 print(total_flashes)
+
+def sum2d(arr2d):
+    total = 0
+    for arr in arr2d:
+        total += sum(arr)
+
+    return total
+
+steps = 100
+while sum2d(grid) != 0:
+    step()
+    steps += 1
+
+print(steps)
