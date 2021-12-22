@@ -1,4 +1,5 @@
 import ast
+import copy
 
 def add(p1, p2):
     if p1 == None: return p2
@@ -69,10 +70,28 @@ def magnitude(el):
 
 data = open("18.input")
 
+nums = []
+for line in data:
+    nums.append(ast.literal_eval(line.strip()))
+
 result = None
 
-for line in data:
-    l = ast.literal_eval(line.strip())
-    result = add(result, l)
+for num in nums:
+    result = add(result, num)
 
 print(magnitude(result))
+
+nums.clear()
+data.seek(0)
+
+nums = []
+for line in data:
+    nums.append(ast.literal_eval(line.strip()))
+
+largest = 0
+for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+        largest = max(largest, magnitude(add(copy.deepcopy(nums[i]), copy.deepcopy(nums[j]))))
+        largest = max(largest, magnitude(add(copy.deepcopy(nums[j]), copy.deepcopy(nums[i]))))
+
+print(largest)
