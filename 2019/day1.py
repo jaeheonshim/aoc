@@ -1,20 +1,27 @@
 import pathlib
 import sys
 
-def parse(puzzle_input):
-    l = []
-    for line in puzzle_input.split("\n\n"):
-        l.append(sum([int(x) for x in line.split("\n")]))
+def calc_fuel(x):
+    fuel = (x // 3) - 2
+    if max(fuel, 0) == 0: return 0
+    return fuel + calc_fuel(fuel)
 
-    return l
+def parse(puzzle_input):
+    return [int(x) for x in puzzle_input.split("\n")]
 
 def part1(data):
-    return max(data)
+    s = 0
+    for i in data:
+        s += (i // 3) - 2
 
+    return s
 
 def part2(data):
-    s = sorted(data)
-    return s[-1] + s[-2] + s[-3]
+    s = 0
+    for i in data:
+        s += calc_fuel(i)
+
+    return s
 
 def solve(puzzle_input):
     data = parse(puzzle_input)

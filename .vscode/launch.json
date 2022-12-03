@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": "2022/${fileBasenameNoExtension}.txt",
+            "args": "2019/${fileBasenameNoExtension}.txt",
             "console": "integratedTerminal",
             "justMyCode": true
         }

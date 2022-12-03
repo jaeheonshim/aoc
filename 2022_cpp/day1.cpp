@@ -21,4 +21,6 @@ int main() {
 
     std::cout << data[0] << '\n';
     std::cout << data[0] + data[1] + data[2] << '\n';
+
+    return 0;
 }

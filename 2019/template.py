@@ -2,19 +2,13 @@ import pathlib
 import sys
 
 def parse(puzzle_input):
-    l = []
-    for line in puzzle_input.split("\n\n"):
-        l.append(sum([int(x) for x in line.split("\n")]))
-
-    return l
+    return puzzle_input.split("\n")
 
 def part1(data):
-    return max(data)
-
+    return None
 
 def part2(data):
-    s = sorted(data)
-    return s[-1] + s[-2] + s[-3]
+    return None
 
 def solve(puzzle_input):
     data = parse(puzzle_input)
