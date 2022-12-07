@@ -3,13 +3,17 @@ import sys
 import re
 
 def parse(puzzle_input):
-    return puzzle_input.split("\n")
+    return puzzle_input
 
 def part1(data):
-    return None
+    for i in range(4, len(data)):
+        if len(set(data[i - 4:i])) == len(data[i - 4:i]):
+            return i
 
 def part2(data):
-    return None
+    for i in range(14, len(data)):
+        if len(set(data[i - 14:i])) == len(data[i - 14:i]):
+            return i
 
 def solve(puzzle_input):
     solution1 = part1(parse(puzzle_input))
